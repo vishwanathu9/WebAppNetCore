@@ -1,0 +1,44 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+	  <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20201027084158_AddPhotoPathColumn.cs" />
+    <Compile Remove="Migrations\20201027084158_AddPhotoPathColumn.Designer.cs" />
+    <Compile Remove="Migrations\20201027084451_AddSomeProperty.cs" />
+    <Compile Remove="Migrations\20201027084451_AddSomeProperty.Designer.cs" />
+    <Compile Remove="Migrations\20201027084851_AddPhoto.cs" />
+    <Compile Remove="Migrations\20201027084851_AddPhoto.Designer.cs" />
+    <Compile Remove="Migrations\20201027084942_AddSomeProperty.cs" />
+    <Compile Remove="Migrations\20201027084942_AddSomeProperty.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="nlog.Config" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="nlog.Config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.9">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.4" />
+    <PackageReference Include="NLog" Version="4.7.5" />
+    <PackageReference Include="NLog.Extensions.Logging" Version="1.6.5" />
+    <PackageReference Include="NLog.Web.AspNetCore" Version="4.9.3" />
+  </ItemGroup>
+
+
+</Project>
