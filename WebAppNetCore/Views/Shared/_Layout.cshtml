@@ -1,4 +1,5 @@
 ﻿@using Microsoft.AspNetCore.Identity
+
 @inject SignInManager<IdentityUser> signInManager
 <html>
 <head>
@@ -28,18 +29,18 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="collapseNavbar">
-                <ul class="navbar-nav ml-auto">                   
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="home" asp-action="Index">
-                                List
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="Administration" asp-action="CreateRole">
-                                Create Role
-                            </a>
-                        </li>
-                    
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="home" asp-action="Index">
+                            List
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-controller="Administration" asp-action="CreateRole">
+                            Create Role
+                        </a>
+                    </li>
+
                 </ul>
             </div>
             <div class="collapse navbar-collapse" id="collapseNavbar">

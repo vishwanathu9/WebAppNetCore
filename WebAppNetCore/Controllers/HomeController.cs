@@ -73,7 +73,7 @@ namespace WebAppNetCore.Controllers
             return RedirectToAction("Index");
         }
         [HttpPost]
-       
+        
         public IActionResult Create(EmployeeCreateViewModel model)
         {
             if (ModelState.IsValid)

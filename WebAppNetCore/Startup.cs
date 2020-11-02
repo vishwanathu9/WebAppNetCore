@@ -51,6 +51,25 @@ namespace WebAppNetCore
 
             services.AddScoped<IEmployeeRepository, SqlEmployeeRepository>();
 
+            services.AddAuthentication().AddGoogle(options =>
+            {
+                options.ClientId = "126046053480-f81mdk40mihfkdmnbikr60cqs7polbk6.apps.googleusercontent.com";
+                options.ClientSecret = "bdBpm_fkjRODmcn6zIBWU0-P";
+            });
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("DeleteRolePolicy",
+                    policy => policy.RequireClaim("Delete Role"));
+            });
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("EditRolePolicy", policy => policy.RequireAssertion(context =>
+             context.User.IsInRole("Admin") &&
+             context.User.HasClaim(claim => claim.Type == "Edit Role" && claim.Value == "true") ||
+             context.User.IsInRole("Super Admin")));
+            });
+           
 
         }
 

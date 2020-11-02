@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using WebAppNetCore.ViewModel;
@@ -19,6 +20,7 @@ namespace WebAppNetCore.Controllers
             _userManager = userManager;
         }
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public IActionResult CreateRole()
         {
             return View();
@@ -184,6 +186,12 @@ namespace WebAppNetCore.Controllers
             }
 
             return RedirectToAction("EditRole", new { Id = roleId });
+        }
+        [HttpGet]
+        public IActionResult ListUsers()
+        {
+            var users = _userManager.Users;
+            return View(users);
         }
     }
 }
